@@ -1,0 +1,81 @@
+Berikut adalah penjelasan sistematis mengenai struktur, elemen (tag), atribut, dan entitas pada kode HTML profile:
+
+---
+
+### 1. Struktur Dasar (Document Structure)
+
+Bagian ini menentukan kerangka dokumen dan meta-data halaman.
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style> ... </style>
+  </head>
+  <body> ... </body>
+</html>
+```
+
+#### **A. Tag dan Atribut Utama**
+*   **`<!doctype html>`**: Bukan tag, tapi **instruksi** agar browser menggunakan **HTML5**.
+*   **`<html>`**: Tag root (induk). Atribut `lang="en"` memberi tahu browser bahwa bahasa utama halaman adalah Inggris (meskipun kontennya berbahasa Indonesia).
+*   **`<head>`**: Berisi metadata (data tentang data) yang tidak tampil langsung di halaman.
+    *   **`<meta charset="UTF-8">`**: Mengatur karakter agar bisa menampilkan simbol global (termasuk karakter khusus).
+    *   **`<meta name="viewport">`**: Mengatur agar tampilan website ramah di *mobile* (responsif).
+    *   **`<title>`**: Judul yang muncul di tab browser.
+    *   **`<style>`**: Berisi kode **CSS** untuk mengatur tampilan.
+
+#### **B. Entitas HTML yang Bisa Digunakan**
+*   **`&nbsp;`** (Non-Breaking Space): Digunakan pada `<h1>Judul&nbsp;Halaman</h1>` (dalam contoh sebelumnya) atau bisa menggantikan spasi biasa agar spasi tersebut tidak hilang atau turun baris saat kode di-*minify*.
+*   **`&mdash;`** (Em Dash): Tanda strip panjang (—). Digunakan pada `<p>Halo &mdash; ini paragraf...` sebagai pemisah kalimat yang lebih tegas daripada koma.
+*   **`&copy;`** (Copyright): Menampilkan simbol ©. Digunakan pada `<p>... simbol &copy; 2026.</p>`.
+
+---
+
+### 2. Layout & Container (Struktur Fisik)
+
+Bagian `<body>` berisi elemen-elemen yang akan dilihat pengguna.
+
+| Tag           | Fungsi                                                                                  | Atribut Utama                                                                                 |
+| :---          | :---                                                                                    | :---                                                                                          |
+| **`<body>`**  | Wadah utama semua konten visual.                                                        | `style="..."`: Mengatur tinggi, lebar, warna latar, dan ukuran font dasar.                    |
+| **`<div>`**   | Wadah pembungkus (container) untuk mengelompokkan elemen lain agar bisa diatur CSS-nya. | `class="container"`: Untuk penamaan kelompok. `style="..."`: Mengatur tinggi dan lebar penuh. |
+| **`<table>`** | Membuat tabel untuk layouting (mengatur posisi elemen ke dalam baris dan kolom).        | `class="profile"`: Penamaan kelompok. `border="1px solid"`: Memberikan garis tepi tebal.      |
+
+---
+
+### 3. Struktur Tabel (Baris dan Kolom)
+
+Kode ini menggunakan tabel untuk membagi halaman menjadi 3 bagian utama di baris pertama.
+
+#### **Tag Baris (`<tr>`) dan Sel (`<td>`)**
+*   **`<tr>`** (*Table Row*)  : Membuat satu baris horizontal.
+    *   `style="height: 70px"`: Menetapkan tinggi baris header.
+*   **`<td>`** (*Table Data*) : Sel tempat konten berada.
+    *   `style="width: 33%"`  : Membagi lebar kolom secara proporsional.
+
+#### **Elemen Teks dan Tipografi**
+*   **`<p>`** (*Paragraph*): Paragraf teks biasa.
+    *   `style="font-family: 'Courier New'..."`: Menggunakan font *monospace* (seperti mesin ketik).
+    *   `style="font-weight: bolder"`: Membuat teks sangat tebal.
+*   **`<span>`**           : Wadah teks inline (tidak turun baris). Sering digunakan untuk memberikan gaya spesifik pada sebagian kata.
+    *   `title="..."`      : **Atribut penting!** Muncul sebagai *tooltip* (kotak kuning kecil) saat kursor diarahkan ke teks.
+
+#### **Entri Data Profil**
+*   **`<h1>`**: Heading utama (ukuran font paling besar).
+*   **`<br>`**: Tag *self-closing* untuk **pindah baris** (*line break*).
+
+---
+
+### 4. Interaksi dan Media
+
+Bagian ini menangani tautan, tombol, dan gambar.
+
+| Elemen                | Fungsi                            | Atribut Kunci                                                                             |
+| :---                  | :---                              | :---                                                                                      |
+| **`<a>`** (*Anchor*)  | Membuat tautan ke halaman lain.   | `href="..."`: Link tujuan. `target="_blank"`: Membuka di tab baru.                        |
+| **`<button>`**        | Tombol yang bisa diklik.          | `style="..."`: Mendesain bentuk, warna, dan padding.                                      |
+| **`<img>`**           | Menampilkan gambar.               | `src="profile.png"`: Path file gambar. `alt=""`: Teks alternatif jika gambar gagal dimuat.|
